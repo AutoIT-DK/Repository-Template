@@ -1,0 +1,13 @@
+{
+  "name": "testinst",
+  "private": true,
+  "scripts": {
+    "setup": "npm install && npm --prefix frontend install",
+    "dev": "concurrently -k -n backend,frontend -c blue,green \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev:backend": "dotnet clean backend/Api && dotnet watch --project backend/Api --no-hot-reload run --urls http://localhost:5000",
+    "dev:frontend": "npm --prefix frontend run dev -- --port 4000 --host"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}
