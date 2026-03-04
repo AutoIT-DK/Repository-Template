@@ -84,8 +84,6 @@ app.UseRouting();
 app.UseBff();
 app.UseAuthorization();
 
-app.MapBffManagementEndpoints();
-
 app.MapGet("/api/user", async (HttpContext httpContext, IHttpClientFactory httpClientFactory, IConfiguration configuration, CancellationToken cancellationToken) =>
 {
     var userId = ResolveUserId(httpContext.User);
